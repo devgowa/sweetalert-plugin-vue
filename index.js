@@ -26,25 +26,23 @@ export default {
 		};
 		const p = Object.assign(pd,params);
 		swal({
-            title: p.title,
-            text: p.text,
-            type: "warning",
-            confirmButtonColor: "#ff4242",
-            showCancelButton: true,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel plx!",
-            closeOnConfirm: false,
-            closeOnCancel: false
-        }).then((isConfirm)=>{
-            if (isConfirm) {
-            	p.onSuccess();
-            } else {
-                swal("Cancelled", "Cancelled!", "error");
-            }
+			title: p.title,
+			text: p.text,
+			icon: "warning",
+			buttons: true,
+			dangerMode: true
+        }).then((willDelete)=>{
+        	if(willDelete)
+        	{
+        		p.onSuccess();
+        	}
+        	else
+        	{
+        		swal('Di Batalkan.','Penghapusan Data Di Batalkan.','error');
+        	}
         });
 	}
 }
-
 // import sweetalert from './path/to/sweetalert';
 // Vue.prototype.$swal = sweetalert;
 
