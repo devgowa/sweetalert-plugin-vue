@@ -35,7 +35,7 @@ export default {
             cancelButtonText: "No, cancel plx!",
             closeOnConfirm: false,
             closeOnCancel: false
-        }, function (isConfirm) {
+        }).then((isConfirm)=>{
             if (isConfirm) {
             	p.onSuccess();
             } else {
